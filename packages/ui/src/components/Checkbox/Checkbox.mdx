@@ -1,0 +1,53 @@
+---
+name: Checkbox
+menu: Components
+route: /components/Checkbox
+---
+
+import { Playground, Props } from 'docz'
+
+import { ThemeSelect, TypoSelect } from '../../helpers/ThemeSelect'
+import { ThemeBackground } from '../../helpers/ThemeBackground'
+
+import { Checkbox, CheckboxList } from '.'
+
+<TypoSelect />
+<ThemeSelect />
+
+# Checkbox
+Кнопка-галочка, или *чекбокс*. С помощью ``CheckboxList`` поддерживается создание списков чекбоксов.
+
+## Checkbox
+<Props of={Checkbox} />
+
+## CheckboxList
+<Props of={CheckboxList} />
+
+## Примеры
+
+### Одиночный чекбокс
+<Playground>
+    {() => {
+        const [checked, setChecked] = React.useState(false);
+        return (
+            <ThemeBackground>
+                <Checkbox value={0} label="Одиночный чекбокс" checked={checked} onChange={(ch) => setChecked(ch)} />
+            </ThemeBackground>
+        );
+    }}
+</Playground>
+
+### Список чекбоксов
+<Playground>
+    {() => {
+        const items = Array(5)
+            .fill(0)
+            .map((_, i) => ({ value: i, label: `Чекбокс ${i}` }));
+        const [values, setValues] = React.useState([0]);
+        return (
+            <ThemeBackground>
+                <CheckboxList values={values} items={items} onChange={(v) => setValues(v)} />
+            </ThemeBackground>
+        );
+    }}
+</Playground>
