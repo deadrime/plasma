@@ -24,20 +24,29 @@ route: /
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @sberdevices/ui@rc @sberdevices/plasma-tokens@rc
+$ npm install --save @sberdevices/ui@rc @sberdevices/plasma-tokens@rc @sberdevices/plasma-icons@rc
 ```
 
-### Использование компонент
+### Использование компонентов
 
-Все компоненты доступны из папки `components`
+Все компоненты доступны из корня библиотеки
 Пример:
 
 ```jsx
-import { Button } from '@sberdevices/ui/components/Button/Button';
+import { Button } from '@sberdevices/ui';
 
 const App = () => {
     return <Button>Hello Plasma</Button>;
 };
+```
+
+Библиотека предоставляет вспомогательную функциональность - `utils`, `mixins`, `hocs`, доступную в соответствующих директориях  
+Пример импорта:
+
+```jsx
+import { animatedScrollToX } from '@sberdevices/ui/utils';
+import { addFocus } from '@sberdevices/ui/mixins';
+import { withAutoFocus } from '@sberdevices/ui/hocs';
 ```
 
 ## Полезные ссылки:
