@@ -1,0 +1,33 @@
+---
+name: DeviceDetection
+menu: Components
+route: /components/DeviceDetection
+---
+
+import { Playground, Props } from 'docz'
+
+import { ThemeSelect } from '../../helpers/ThemeSelect'
+import { ThemeBackground } from '../../helpers/ThemeBackground'
+import { Button } from '../Button'
+import { DeviceThemeProvider } from './DeviceDetection'
+
+<ThemeSelect />
+
+### Props
+<Props of={DeviceThemeProvider} />
+
+# DeviceThemeProvider
+Провайдер react-контекста, для использования необходимо обернуть в него все приложение.
+Назначение - определяет, на каком девайсе запущено приложение (по умолчанию 3 значения - `sberBox`, `sberPortal`, `touch`).   
+В зависимости от значения, применяет глобальные стили, подходящие данной платформе, ко всему приложению.
+
+Имеется возможность передать провайдеру собственную логику вычисления девайса, на котором запущено приложение.   
+При этом стоит помнить, что разрешены только 3 стандартных значения.
+
+<Playground>
+    <DeviceThemeProvider detectDeviceCallback={() => 'sberBox'}>
+        <ThemeBackground>
+            <Button>Device detection</Button>
+        </ThemeBackground>
+    </DeviceThemeProvider>
+</Playground>
