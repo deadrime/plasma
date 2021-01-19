@@ -51,6 +51,6 @@ import { withAutoFocus } from '@sberdevices/ui/hocs';
 
 ## Полезные ссылки:
 
-Витрина с компонентами [storybook](https://master--5f96ec813d800900227e3b93.chromatic.com)
+Витрина с компонентами [storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com)
 
 Документация о каждом компоненте: http://plasma.sberdevices.ru/
