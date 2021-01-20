@@ -26,15 +26,19 @@ export const isSberBox = (): boolean => navigator?.userAgent?.toLowerCase()?.inc
  * @return {DeviceKind}
  */
 export const detectDevice = (): DeviceKind => {
-    if (typeof navigator === undefined) {
-        return 'sberBox';
-    }
-    switch (true) {
-        case isSberPortal():
-            return 'sberPortal';
-        case isSberBox():
+    try {
+        if (typeof navigator === undefined) {
             return 'sberBox';
-        default:
-            return 'touch';
+        }
+        switch (true) {
+            case isSberPortal():
+                return 'sberPortal';
+            case isSberBox():
+                return 'sberBox';
+            default:
+                return 'touch';
+        }
+    } catch {
+        return 'sberBox';
     }
 };
