@@ -22,11 +22,11 @@ import { DeviceThemeProvider } from './DeviceDetection'
 В зависимости от значения, применяет глобальные стили типографии, подходящие данной платформе, ко всему приложению, а также расширяет объект темы полем `deviceScale`.  
 Тип девайса определяется на основании `userAgent`, при отсутствии `navigator` или `userAgent` девайс  будет определен как `sberBox`.
 
-Имеется возможность передать провайдеру собственную логику вычисления девайса, на котором запущено приложение.   
+Имеется возможность передать провайдеру собственную логику определения девайса с помощью пропса `detectDeviceCallback`.   
 При этом стоит помнить, что разрешены только 3 стандартных значения.
 
 <Playground>
-    <DeviceThemeProvider detectDeviceCallback={() => 'sberBox'}>
+    <DeviceThemeProvider>
         <ThemeBackground>
             <Button>Device detection</Button>
         </ThemeBackground>
