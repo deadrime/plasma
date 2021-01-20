@@ -1,0 +1,53 @@
+---
+name: Radiobox
+menu: Components
+route: /components/Radiobox
+---
+
+import { Playground, Props } from 'docz'
+
+import { ThemeSelect, TypoSelect } from '../../helpers/ThemeSelect'
+import { ThemeBackground } from '../../helpers/ThemeBackground'
+
+import { Radiobox, RadioboxList } from '.'
+
+<TypoSelect />
+<ThemeSelect />
+
+# Radiobox
+Кнопка-отметка, или *радиокнопка*. С помощью ``RadioboxList`` поддерживается создание списков радиокнопок.
+
+## Radiobox
+<Props of={Radiobox} />
+
+## RadioboxList
+<Props of={RadioboxList} />
+
+## Примеры
+
+### Одиночная радиокнопка
+<Playground>
+    {() => {
+        const [checked, setChecked] = React.useState(false);
+        return (
+            <ThemeBackground>
+                <Radiobox value={0} label="Одиночная радиокнопка" checked={checked} onChange={(ch) => setChecked(ch)} />
+            </ThemeBackground>
+        );
+    }}
+</Playground>
+
+### Список радиокнопок
+<Playground>
+    {() => {
+        const items = Array(5)
+            .fill(0)
+            .map((_, i) => ({ value: i, label: `Радиокнопка ${i}` }));
+        const [values, setValues] = React.useState([0]);
+        return (
+            <ThemeBackground>
+                <RadioboxList values={values} items={items} onChange={(v) => setValues(v)} />
+            </ThemeBackground>
+        );
+    }}
+</Playground>
